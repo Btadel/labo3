@@ -1,0 +1,83 @@
+\documentclass[french,11pt]{article}
+\usepackage{datetime}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+%\usepackage{bibtex} %Imports biblatex package
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{listings,url}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\bibliographystyle{plain}
+\setlength\parindent{0pt}
+
+\title{\vspace{-1cm}\centering\includegraphics[scale=.8]{UdeM_Hexa.png}  \\\textbf{Titre de l'expérience}}
+\author{ Votre Nom et le Nom de votre coéquipier}
+\date{Expérience effectuée le 34 Janvember 3025 \\ Rapport soumis le \today\ }
+
+\begin{document}
+\renewcommand{\tablename}{Tableau}
+
+
+\maketitle
+\section*{Résumé}
+Nous avons mesuré quelque chose et c'est 12.1 $\pm$ 0.2 parsec qui est plus rapide\footnote{Sauf, \og parsec \fg{} est unité de distance, pas de temps.} que 14. Et dans ce modèle de rapport \LaTeX, on montre comment intégrer des figures, équations, tableaux, notes en bas de page, et références dans un texte. Notez que les figures et références demeurent dans des fichiers séparés du fichier rapport.tex qui contient le texte et mis-sur-page du rapport. 
+\newpage
+\vspace{-1cm}
+
+\section*{Introduction}
+
+blah blah blah c'est déjà trop longue.
+
+\section{Résultats, analyse, incertitudes\label{sec:result}}
+Noter que cette section porte un numéro (\ref{sec:result}), contrairement à la section précédente \og Introduction \fg{}; la différence est l'étoile * dans l'expression \og $\backslash$section\{\} \fg{} \LaTeX. Même truc fonctionne pour équations et plusieurs autres objets.
+
+Décrire ici vos mesures et comment vous avez effectué l'analyse, et soit intégré dans le texte, soit dans un section à part, décrire comment vous avez déterminé les inceritudes et comment on les a propagés.
+
+\subsection*{Inclure un graphique}
+Voici un exemple d'une graphique, Figure \ref{fig:pendule} (NB, les lettres [htbp] aident à suggérer où \LaTeX \ va placer la figure, \textbf{h}ere (si possible), \textbf{t}op, \textbf{b}ottom, \textbf{p}age of floats) :
+\begin{figure}[htbp]
+	\begin{center}
+		\includegraphics[width = 12cm]{histo-pendule.png}
+	\end{center}
+	\caption{\label{fig:pendule} Barres grises : Histogramme de 90 mesures de la période $T$ (ne pas confondre $T$ avec $\tau$) d'un pendule mesuré avec un sablier par un presque aveugle. Ligne noire : Courbe théorique (c'est une courbe Gauss, ou \og \textit{gaussienne} \fg{}).}
+\end{figure}
+
+\subsection*{Inclure une équation}
+Et voici un exemple d'une formule :
+
+\begin{equation}
+\delta f=\sqrt{\left(\frac{\partial f}{\partial x}\delta x\right)^2+\left(\frac{\partial f}{\partial y}\delta y\right)^2+\ldots}\ .
+\label{eq:exemple}
+\end{equation}
+
+Pour référer cette formule dans le texte, on peut ajouter un $\backslash$ref\{\}, comme ça : \og équation \ref{eq:exemple} \fg{}. Si on remplace \og equation \fg{} par \og align \fg{} dans l'expression \LaTeX (NB, donc dans \og $\backslash$begin\{\} \fg{} et \og $\backslash$end\{\} \fg{}), on peut aligner plusieurs formules. Pour placer une formule dans une ligne de text, utiliser des signes dollar : $\alpha = \varepsilon + \varphi$ , mais cette méthode affiche la formule sans numéro. Les signes dollar sont aussi nécessaires pour des sub- et sous-scripts : V$^{2}$ et C$_{vol}$ ou des caractères grecs et spéciaux comme $\beta$ et $\hbar$.
+
+\medskip
+\subsection*{Inclure un tableau}
+
+Il reste à montrer comment insérer un tableau. Voilà comme ça, c'est le tableau \ref{table:sign}:
+\begin{table}[!ht]
+\caption{Exemples : arrondir des valeurs mesurées} % title of Table
+\centering % used for centering table
+\begin{tabular}{c c c c} % centered columns
+\hline\hline %inserts double horizontal lines
+valeur mesurée & incertitude & incertitude arrondie & valeur rapportée \\
+\hline
+412.4 & 3.6 & 4 & 412 $\pm$ 4 \\
+312.67 & 1.23 & 1.2 & 312.7 $\pm$ 1.2 \\
+514.2 & 18.6 & 19 & 514 $\pm$ 19 \\
+534617 & 320 & 300 & (5346 $\pm$ 3)$\times 10^2$ \\
+0.06745 & 0.0089 & 0.009 & (67 $\pm$ 9)$\times10^{-3}$ \\
+\hline % inserts single horizontal line
+\end{tabular}
+\label{table:sign} 
+\end{table}
+
+Cette règle sur le nombre des chiffres significatifs est généralement appliqué, mais il existe des exceptions: quand on annonce des valeurs des constantes physiques (p.e. $\mu_0$, $\alpha$, $R_\infty$) ou des résultats majeures qui risquent d'être utilisés dans d'autres calculs comme la masse de boson de Higgs \cite{aad2015combined}, on peut ajouter un chiffre significatif.
+
+\section*{Conclusion}
+Normalement on parle dans la conclusion uniquement des choses déjà traitées en détail dans le texte principale sans introduire des nouvelles concepts ou angles de discussion. Mais pour donner mauvais exemple, je mention ici que je recommande d'ouvrir un compte overleaf (www.overleaf.com) qui est façon facile d'écrire son rapport en \LaTeX, tout en partageant le rapport avec son co-équipier. Il est possible d'installer \LaTeX \ sur un disque dur, mais on manque toujours un ou deux modules (\og packages \fg{}).
+
+\bibliography{MesRéférences}
+
+\end{document}
