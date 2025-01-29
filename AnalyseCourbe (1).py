@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import numpy as np
 from scipy.optimize import curve_fit
 
 filename = 'test2.txt'
@@ -63,7 +64,7 @@ plt.title('Ajustement manuel avec x0 automatique')
 plt.grid()
 plt.show()
 
-# Ajustement avec curve_fit
+#curve_fit
 pinit = [x_0_auto, 40e-6, np.max(y), 0]
 popt, pcov = curve_fit(theob, x, y_normalisees, p0=pinit, maxfev=10000)
 
