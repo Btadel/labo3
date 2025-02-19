@@ -186,9 +186,16 @@ for i, data in enumerate(data_files):
     print(f"  offset= {offset_fit:.3f} ± {err_off:.3f} ")
     
     # Calcul et affichage de la position du premier minimum pour les fentes simples
+<<<<<<< HEAD
     if N_data == 1:  # Seulement pour les fentes simples
         x_min = (LAMBDA * F) / b_fit  # Calcul de la position du premier minimum
         print(f"  Position du premier minimum x_min = {x_min:.3e} m")
+=======
+    if N_data == 1: 
+        x_min = (LAMBDA * F) / b_fit  
+        err_x_min = (LAMBDA * F) / (b_fit**2) * err_b  
+        print(f"  Position du premier minimum x_min = {x_min:.3e} ± {err_x_min:.3e} m")
+>>>>>>> 5b75743bcc82ec1c4e42b645934a0db956f63295
     print("-----------------------------------------------------")
 
 # Fin de la boucle
